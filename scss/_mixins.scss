@@ -1,0 +1,59 @@
+
+@mixin button{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+    width: 210px;
+    height: 60px;
+    border-width: 1px;
+    border-radius:  50px;
+    text-decoration: none;
+
+   
+}
+@mixin btn-unique( $bc, $color, $hover-bg){
+    background-color: $bc ;
+    color: $color;
+    border-color: $bc;
+    &:hover{
+        background-color:  $hover-bg;
+        border-color:  $hover-bg;
+    }
+}
+
+
+@mixin typography($f-size, $l-height, $f-weight, $f-fam, ) {
+  font-size: calc($f-size / 16) * 1rem; 
+  line-height: $l-height;     
+  font-weight: $f-weight;
+  font-family: $f-fam;
+  
+}
+@mixin card($bg-c, $top, $right, $width, $height, $bg){
+    background-color: $bg-c;
+    border-radius: 50px;
+    &::before{
+        content: "";
+        position: absolute;
+        top: $top;
+        right: $right;
+        width: $width;
+        height: $height;
+        z-index: 0;
+        background: $bg;
+        background-repeat: no-repeat ;
+        background-position: center;
+        background-size: cover;
+    }
+}
+@mixin icon-hover ($color){
+    &:hover{
+        background-color: #fff;
+    border-color: $color;
+    color: $color;
+    
+
+    }
+    
+
+}

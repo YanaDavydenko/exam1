@@ -1,0 +1,43 @@
+%btn-primary{
+    display:flex;
+  align-items:center;
+  justify-content: center;
+  gap:20px;
+    border: 1px solid #9C69E2;
+    border-radius:  50px;
+    color: #212353;
+    background-color: white;
+    text-decoration: none;
+    cursor: pointer;
+    .btn__svg{
+        width: 20px;
+        height: 14px;
+        color: #8A40EE;
+    }
+    &:hover{
+        background-color: #9C69E2;
+        border-color: #9C69E2;
+        color: #fff;
+        .btn__svg{
+            color: #fff;
+        }
+
+    }
+
+}
+%link{
+     display:flex;
+  align-items:center;
+  
+  gap:20px;
+  color: #212353;
+  text-decoration: none;
+ 
+  .link__svg{
+        width: 20px;
+        height: 14px;
+        color: #8A40EE;
+    
+  }
+
+}
