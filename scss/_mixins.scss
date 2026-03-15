@@ -7,9 +7,7 @@
     height: 60px;
     border-width: 1px;
     border-radius:  50px;
-    text-decoration: none;
-
-   
+    text-decoration: none;  
 }
 @mixin btn-unique( $bc, $color, $hover-bg){
     background-color: $bc ;
@@ -21,13 +19,38 @@
     }
 }
 
-
-@mixin typography($f-size, $l-height, $f-weight, $f-fam, ) {
+@mixin typography($f-size, $l-height, $f-weight, $f-fam,$size-lg: null, $size-md: null, $size-sm: null, $size-xs: null) {
   font-size: calc($f-size / 16) * 1rem; 
   line-height: $l-height;     
   font-weight: $f-weight;
   font-family: $f-fam;
-  
+  // Ноутбук ≤1200px
+  @if $size-lg != null {
+    @media screen and (max-width: 1200px) {
+      font-size: calc($size-lg / 16 * 1rem);
+    }
+  }
+
+  // Планшет ≤992px
+  @if $size-md != null {
+    @media screen and (max-width: 992px) {
+      font-size: calc($size-md / 16 * 1rem);
+    }
+  }
+
+  // Большие телефоны ≤768px
+  @if $size-sm != null {
+    @media screen and (max-width: 768px) {
+      font-size: calc($size-sm / 16 * 1rem);
+    }
+  }
+
+  // Маленькие телефоны ≤576px
+  @if $size-xs != null {
+    @media screen and (max-width: 576px) {
+      font-size: calc($size-xs / 16 * 1rem);
+    }
+  } 
 }
 @mixin card($bg-c, $top, $right, $width, $height, $bg){
     background-color: $bg-c;
@@ -51,9 +74,16 @@
         background-color: #fff;
     border-color: $color;
     color: $color;
-    
-
     }
-    
-
+}
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == laptop {
+    @media screen and (max-width: 1200px) { @content; }
+  } @else if $breakpoint == tablet {
+    @media screen and (max-width: 992px) { @content; }
+  } @else if $breakpoint == mobile {
+    @media screen and (max-width: 768px) { @content; }
+  } @else if $breakpoint == smobile {
+    @media screen and (max-width: 576px) { @content; }
+  }
 }

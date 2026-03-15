@@ -21,16 +21,24 @@ html, body{
 .container{
     max-width: v.$container-width;
     margin: 0 auto;
-    @media screen and (max-width: 1200px){
-        max-width: 960px;
-    }
+    width: 100%;
+    
+   @include m.respond-to(laptop){
+    max-width: 970px;
+    
+   }
+   @include m.respond-to(tablet){
+    max-width: 750px;
+    
+   }
+    
     
     }
 
 
 .btn{
     @include m.button;
-    @include m.typography(18, 1.6, 500, 'Montserrat');
+    @include m.typography(18, 1.6, 500, 'Montserrat', 18, 16, 16, 14);
     &--primary{
          @extend %btn-primary;
          margin-left: auto;  
@@ -40,7 +48,11 @@ html, body{
      }
      &--violet{
          @include m.btn-unique(#9C69E2, #fff, #8A40EE);
+         @include m.respond-to(tablet){
+         display: none;
+     }
      }   
+     
          
 
 }
@@ -53,10 +65,121 @@ html, body{
   top: 0;
   z-index: 1000;
   background-color: #fff;
-  @media screen and (max-width: 1200px){
-        padding: 30px 0;
+  
+    @include m.respond-to(laptop){
+        margin-bottom: 100px;
+       
     }
+    @include m.respond-to(tablet){
+        margin-bottom: 80px;
+         &__btn{
+     display: none; 
+  }
+    }
+  
+.burger-toggle {
+  display: none;
+}
+.burger {
+    margin-left: auto;
+  display: none; 
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1001;
 
+  span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #212353;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  @include m.respond-to(tablet){
+    display: flex;
+  }
+}
+
+.mobile-menu {
+  
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+
+  height: 60vh;
+  background-color: #fff;
+  display: flex;
+ justify-content: center;
+  align-items: center;
+  transition: top 0.4s ease;
+  z-index: 1000;
+  
+
+  &__list {
+    
+    list-style: none;
+    text-align: center;
+
+    li {
+      
+      margin: 20px 0;
+      font-size: 24px;
+      opacity: 0;
+    transform: translateY(20px);
+    transition: 0.4s;
+      a {
+        display: block;
+        width: 100%;
+        text-decoration: none;
+         padding: 12px 80px;
+        border-radius: 12px;
+        transition: all 0.25s ease;
+
+        color: #4B5D68;
+
+        &:hover {
+
+         background: #F6F0FD;
+        color: #8A40EE;
+        transform: scale(1.05);
+          color: #8A40EE;
+         
+        }
+    }
+      
+    }
+  }
+}
+
+.burger-toggle:checked ~ .mobile-menu li {
+  opacity: 1;
+  transform: translateY(0);
+}
+.mobile-menu__list li:nth-child(1){ transition-delay: 0.1s; }
+.mobile-menu__list li:nth-child(2){ transition-delay: 0.2s; }
+.mobile-menu__list li:nth-child(3){ transition-delay: 0.3s; }
+.mobile-menu__list li:nth-child(4){ transition-delay: 0.4s; }
+/* Когда чекбокс активен – показываем мобильное меню */
+.burger-toggle:checked ~ .mobile-menu {
+  top: 0;
+}
+
+/* Анимация бургера при активном состоянии */
+.burger-toggle:checked + .burger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-toggle:checked + .burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-toggle:checked + .burger span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
 }
  
    
@@ -73,7 +196,9 @@ html, body{
 
 .nav{
     margin-left: 120px;
-    
+    @include m.respond-to(tablet){
+        display: none;
+    }
 
     
     &__list{
@@ -95,31 +220,92 @@ html, body{
 
 .hero{
     margin-bottom: 100px;
+    @include m.respond-to(laptop){
+        margin-bottom: 100px;
+    }
+    @include m.respond-to(tablet){
+        margin-bottom: 80px;
+    }
+    
     &__inner{
-        position: relative;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+    @include m.respond-to(laptop){
+         gap: 20px;   
+        }
+
     }
     &__content{
-        position: absolute;
+       max-width: 370px;
+        padding-bottom: 30px;
+        @include m.respond-to(laptop){
+            padding-bottom: 10px;
+            
+        }
+        @include m.respond-to(tablet){
+            padding-bottom: 5px;
+        }
+        
     }
     &__heading{
+        top: 0;
+        position: absolute;
         max-width:600px;
         color: v.$heading-color;
-        @include m.typography(80, 1.1, 700, 'Work Sans');
+        @include m.typography(80, 1, 700, 'Work Sans', 72, 64, 50, 48);
     }
     &__text{
         max-width: 370px;
-        @include m.typography(18, 1.6, 500, 'Montserrat');
+        @include m.typography(18, 1.3, 500, 'Montserrat', 18, 15, 14, 12);
         margin-top: 50px;
-        margin-bottom: 50px;
+        padding-bottom: 50px;
         color: v.$paragraph-color;
+        @include m.respond-to(laptop){
+            padding-bottom: 25px;
+            width: 370px;
+        }
+        @include m.respond-to(tablet){
+            padding-bottom: 10px;
+        }
     }
-   
+    &__link{
+        display: none;
+        @include m.respond-to(tablet){
+             display:flex;
+  align-items:center;
+  
+  gap:10px;
+  color: #212353;
+  text-decoration: none;
+ 
+  .link__svg{
+        width: 20px;
+        height: 14px;
+        color: #8A40EE;
+    
+  }
+            @include m.typography(16, 1.6, 700, 'Montserrat', 15, 14, 13, 12);
+             &:hover{
+                transform: rotate(5deg) translateY(-3px) scale(1.1);
+  transition: transform 0.3s ease;
+        }
+    }
+}
     &__image{
+        display: flex;
+        justify-content: flex-end;
          max-width: 770px;
-    width: 100%;
-    margin-left: auto;
+   
+    
     padding-top: 82px;
-        .hero__image img {
+    @include m.respond-to(tablet){
+        padding-bottom: 0;
+    }
+    
+
+        img {
     max-width: 100%;
   height: auto;
 }
@@ -129,37 +315,53 @@ html, body{
 }
 .intro{
     margin-bottom: 120px;
+    @include m.respond-to(laptop){
+        margin-bottom: 100px;
+    }
+    @include m.respond-to(tablet){
+        margin-bottom: 60px;
+    }
     &__inner{
         background-color: #FDE8F5;
         border-radius: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 130px;
+        gap: 30px;
         padding: 75px 70px;
+       
     }
     &__image{
-        width:400px;
-        height: 410px;
+        max-width:400px;
+        height: auto;
+        width: 100%;
+        img{
+            width: 100%;
+        }
     }
 
     &__heading{
         color: v.$heading-color;
         padding-bottom: 40px;
-        @include m.typography (40, 1.3, 700, 'Work Sans');
+        @include m.typography (40, 1.3, 700, 'Work Sans', 36, 32, 28, 24);
     }
     &__text{
         color: v.$paragraph-color;
-        @include m.typography (18, 1.6, 500, 'Montserrat');
+        @include m.typography (18, 1.6, 500, 'Montserrat', 16, 15, 14, 12);
         
     }
 }
 .features{
+    max-height: 1250px;
     margin-bottom: 120px;
+    @include m.respond-to(laptop){
+        margin-bottom: 100px;
+        min-height: 1280px;
+    }
     &__heading{
         text-align: center;
         color: #212353;
-         @include m.typography (40, 1.3, 700, 'Work Sans');
+         @include m.typography (40, 1.3, 700, 'Work Sans', 40, 32, 28, 24);
 
     }
     &__title{
@@ -173,13 +375,21 @@ html, body{
     &__text{
         width: 638px;
         color: #4B5D68;
-         @include m.typography (18, 1.6, 400, 'Montserrat');
+         @include m.typography (18, 1.6, 400, 'Montserrat', 18, 15, 14, 12);
     }
     &__flex-container{
          display: grid;
-  grid-template-columns: repeat(2, 1fr);
+   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   row-gap: 45px;
   column-gap: 20px;
+  @include m.respond-to(laptop){
+    row-gap: 120px;
+        }
+        @include m.respond-to(tablet){
+                column-gap: 10px;
+                row-gap: 30px;
+                
+            }
     }
 }
 .feature{
@@ -187,8 +397,13 @@ html, body{
         position: relative;
         display: flex;
         align-items: center;
+        @include m.respond-to(laptop){
+         flex-direction: column;   
+        }
+
+        
         &-wrapper{
-            width: 230px;
+            max-width: 230px;
             min-height: 275px;
              margin-left: auto;
              display: flex;
@@ -197,15 +412,30 @@ html, body{
              gap:20px;
              margin-right: 70px;
              z-index: 2;
-            
+              @include m.respond-to(tablet){
+               
+                justify-content: flex-start;  
+            height: 50%;
+            top:0;
              
+                padding-top: 20px;
+            
+
+              }
+              
+    
         }
 
          &-image{
-            width: 240px;
-            height: 180px;
+            max-width: 240px;
+            max-height: 180px;
             position: absolute;
             z-index: 3;
+            left: 5px;
+              @include m.respond-to(tablet){
+                bottom: -100px;
+                left:200px;
+              }
             
          }
           &-image img{
@@ -215,13 +445,24 @@ html, body{
           
           &-content{
              position: relative;
-            width:400px;
+            min-width:400px;
             min-height: 400px;
             margin-left: auto;
             display: flex;
             flex-direction: column;
             justify-content: center;
             z-index: 1;
+            @include m.respond-to(laptop){
+            top: 100px;
+            justify-content: flex-end;
+            padding-bottom: 30px;
+              @include m.respond-to(tablet){
+                justify-content: flex-start;
+                min-width: 350px;
+                min-height: 310px;
+              }
+        }
+        
             
         
             
@@ -242,18 +483,19 @@ html, body{
           }
           &-heading{
             color: v.$heading-color;
-            @include m.typography(24, 1.3, 400, 'Work Sans');
+            @include m.typography(24, 1.3, 400, 'Work Sans', 24, 20, 18, 16);
 
           }
           &-text{
             width: 230px;
             height: 180px;
             color: v.$paragraph-color;
-             @include m.typography(16, 1.6, 400, 'Montserrat');
+             @include m.typography(16, 1.6, 400, 'Montserrat', 15, 14, 13, 12);
+              
           }
           &-link{
             @extend %link;
-            @include m.typography(16, 1.6, 700, 'Montserrat');
+            @include m.typography(16, 1.6, 700, 'Montserrat', 15, 14, 13, 12);
             
             
             &:hover{
@@ -261,11 +503,21 @@ html, body{
   transition: transform 0.3s ease;
 
             }
+             @include m.respond-to(tablet){
+                gap:10px;
+             }
+            
           }
     }
 }
 .testim{
     margin-bottom: 120px;
+    @include m.respond-to(laptop){
+        margin-bottom: 100px;
+    }
+      @include m.respond-to(tablet){
+        margin-bottom: 80px;
+      }
     &__inner{
         position: relative;
         padding: 80px 70px;
@@ -276,6 +528,9 @@ html, body{
     position: relative;
     z-index: 1; 
   }
+    @include m.respond-to(tablet){
+        padding: 50px 70px;
+    }
         &::before {
     content: "";
     position: absolute;
@@ -291,7 +546,7 @@ html, body{
         
     }
     &__title{
-        @include m.typography(40, 1.3, 700, 'Work Sans');
+        @include m.typography(40, 1.3, 700, 'Work Sans', 40, 32, 28, 24);
         color: #4B5D68;
         text-align: center;
         
@@ -299,6 +554,10 @@ html, body{
     &__wrapper{
         display: flex;
        gap: 100px;
+         @include m.respond-to(tablet){
+            flex-direction: column;
+            gap: 30px;
+         }
     }
     &__profile{
         display: flex;
@@ -308,6 +567,10 @@ html, body{
         border-radius: 50px;
         background-color: #fff;
         margin-top: 80px;
+          @include m.respond-to(tablet){
+            align-items: center;
+            margin-top: 30px;
+          }
         
         &-photo{
             width:90px;
@@ -320,13 +583,13 @@ html, body{
             margin-bottom: 20px;
             text-decoration: none;
             color: #9C69E2;
-            @include m.typography(14, 1.6, 400, 'Montserrat');
+            @include m.typography(14, 1.6, 400, 'Montserrat', 14, 12, 12, 12);
         }
         &-heading{
-             @include m.typography(16, 1.6, 500, 'Montserrat');
+             @include m.typography(16, 1.6, 500, 'Montserrat', 16, 14, 13, 12);
         }
         &-text{
-            @include m.typography(16, 1.6, 400, 'Montserrat');
+            @include m.typography(16, 1.6, 400, 'Montserrat', 15, 14, 13, 12);
             color: v.$paragraph-color;
         }
         
@@ -335,22 +598,45 @@ html, body{
 }
 .footer{
     margin-bottom: 120px;
+    @include m.respond-to(laptop){
+        margin-bottom: 100px;
+    }
+      @include m.respond-to(tablet){
+        margin-bottom: 80px;
+      }
     &__cta{
         margin-bottom: 100px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+          @include m.respond-to(tablet){
+            flex-direction: column;
+            margin-bottom: 80px;
+            
+          }
+          
 
     }
     &__title{
-         @include m.typography(40, 1.3, 700, 'Work Sans');
+         @include m.typography(40, 1.3, 700, 'Work Sans', 36, 32, 28, 24);
          color: v.$heading-color;   
          padding-bottom: 20px;
+         @include m.respond-to(tablet){
+            text-align: center;
+            padding-bottom: 10px;
+           }
+
+           
     }
     &__text{
-         @include m.typography(18, 1.6, 500, 'Montserrat');
+         @include m.typography(18, 1.6, 500, 'Montserrat', 16, 15, 14, 12);
          color: v.$paragraph-color;
+         @include m.respond-to(tablet){
+            text-align: center;
+            padding-bottom: 20px;
+           }
           }
+          
     &__cta-buttons{
         display: flex;
         gap: 30px;
@@ -359,11 +645,15 @@ html, body{
         display: grid;
         grid-template-columns: 2fr 1fr 1fr 1fr;
         margin-bottom: 100px;
+          @include m.respond-to(tablet){
+            margin-bottom: 50px;
+          }
       
         &-title{
-             @include m.typography(16, 1.6, 600, 'Montserrat');
+             @include m.typography(16, 1.6, 600, 'Montserrat', 15, 14, 13, 12);
              color: v.$heading-color; 
              margin-bottom: 30px;
+
 
         }
     }
@@ -375,7 +665,7 @@ html, body{
             margin-bottom: 40px;
         }
         &-title{
-            @include m.typography(20, 1.6, 600, 'Montserrat');
+            @include m.typography(20, 1.6, 600, 'Montserrat', 18, 16, 16, 14);
             color: v.$heading-color;
         }
         &-contacts{
@@ -385,7 +675,7 @@ html, body{
         }
         &-address{
             font-style: normal;
-            @include m.typography(16, 1.8, 500, 'Montserrat');
+            @include m.typography(16, 1.8, 500, 'Montserrat', 15, 14, 13, 12);
         }
         &-email, &-phone{
             text-decoration: none;
@@ -415,6 +705,11 @@ html, body{
             list-style: none;
             display: flex;
             gap: 15px;
+              @include m.respond-to(tablet){
+                flex-direction: column;
+                justify-content: space-between;
+                padding-left: 30px;
+              }
         }
        
         &-link{
@@ -436,6 +731,10 @@ html, body{
             &--pink{
                 @include m.icon-hover(#C13584); 
             }
+              @include m.respond-to(tablet){
+                width: 40px;
+                height: 40px;
+              }
         }
         &-icon{
           width: 20px;
@@ -443,8 +742,11 @@ html, body{
         }
     }
     &__bottom{
-         @include m.typography(12, 1.8, 300, 'Montserrat');
+         @include m.typography(12, 1.8, 300, 'Montserrat', 12, 12, 12, 12);
          color: v.$paragraph-color; 
+           @include m.respond-to(tablet){
+            text-align: center;
+           }
     }
  }
  

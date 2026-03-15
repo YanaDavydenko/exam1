@@ -13,6 +13,24 @@
           <a href="#" class="header__logo">
             <img src="./assets/img/Logo.png" alt="Company logo" />
           </a>
+
+          <input type="checkbox" id="burger-toggle" class="burger-toggle" />
+
+          <!-- Бургер -->
+          <label for="burger-toggle" class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          <nav class="mobile-menu">
+            <ul class="mobile-menu__list">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Sign Up</a></li>
+            </ul>
+          </nav>
+
           <nav class="header__nav nav">
             <ul class="nav__list">
               <li class="nav__item"><a href="#" class="nav__link">About</a></li>
@@ -38,14 +56,20 @@
       <section class="hero">
         <div class="container">
           <div class="hero__inner">
+            <h1 class="hero__heading">Save your data storage here.</h1>
             <div class="hero__content">
-              <h1 class="hero__heading">Save your data storage here.</h1>
               <p class="hero__text">
                 Data Warehouse is a data storage area that has been tested for
                 security, so you can store your data here safely but not be
                 afraid of being stolen by others.
               </p>
               <a href="" class="hero__btn btn btn--violet">Learn more </a>
+              <a href="#" class="hero__link"
+                >Learn more
+                <svg class="link__svg">
+                  <use href="./assets/img/sprites/sprite.svg#arrow"></use>
+                </svg>
+              </a>
             </div>
             <div class="hero__image">
               <picture>
@@ -69,6 +93,7 @@
                   srcset="./assets/img/hero/heroImg-1200.webp"
                   type="image/webp"
                 />
+
                 <img src="./assets/img/hero/heroImg.png" alt="Hero Image" />
               </picture>
             </div>
@@ -79,10 +104,28 @@
         <div class="container">
           <div class="intro__inner">
             <div class="intro__image">
-              <img
-                src="./assets/img/descriptionImg.png"
-                alt="Introduction image"
-              />
+              <picture>
+                <source
+                  media="(max-width: 768px)"
+                  srcset="./assets/img/description/descriptionImg-mobile.webp"
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width: 992px)"
+                  srcset="./assets/img/description/descriptionImg-tablet.webp"
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width: 1200px)"
+                  srcset="./assets/img/description/descriptionImg.png"
+                  type="image/webp"
+                />
+
+                <img
+                  src="./assets/img/description/descriptionImg.png"
+                  alt="Introduction Image"
+                />
+              </picture>
             </div>
             <div class="intro__content">
               <h2 class="intro__heading">
@@ -114,7 +157,18 @@
           <div class="features__flex-container">
             <div class="feature__card">
               <div class="feature__card-image">
-                <img src="./assets/img/card-image1.png" alt="card 1 image" />
+                <picture>
+                  <source
+                    media="(max-width: 992px)"
+                    srcset="./assets/img/features/card-image1-tablet.webp"
+                    type="image/webp"
+                  />
+
+                  <img
+                    src="./assets/img/features/card-image1.png"
+                    alt="Introduction Image"
+                  />
+                </picture>
               </div>
               <div class="feature__card-content feature__card-content--first">
                 <div class="feature__card-wrapper">
@@ -135,7 +189,18 @@
             </div>
             <div class="feature__card">
               <div class="feature__card-image">
-                <img src="./assets/img/card-image2.png" alt="card 2 image" />
+                <picture>
+                  <source
+                    media="(max-width: 992px)"
+                    srcset="./assets/img/features/card-image2-tablet.webp"
+                    type="image/webp"
+                  />
+
+                  <img
+                    src="./assets/img/features/card-image2.png"
+                    alt="Introduction Image"
+                  />
+                </picture>
               </div>
               <div class="feature__card-content feature__card-content--second">
                 <div class="feature__card-wrapper">
@@ -157,7 +222,18 @@
 
             <div class="feature__card">
               <div class="feature__card-image">
-                <img src="./assets/img/card-image3.png" alt="card 3 image" />
+                <picture>
+                  <source
+                    media="(max-width: 992px)"
+                    srcset="./assets/img/features/card-image3-tablet.webp"
+                    type="image/webp"
+                  />
+
+                  <img
+                    src="./assets/img/features/card-image3.png"
+                    alt="Introduction Image"
+                  />
+                </picture>
               </div>
               <div class="feature__card-content feature__card-content--third">
                 <div class="feature__card-wrapper">
@@ -177,7 +253,18 @@
             </div>
             <div class="feature__card">
               <div class="feature__card-image">
-                <img src="./assets/img/card-image4.png" alt="card 4 image" />
+                <picture>
+                  <source
+                    media="(max-width: 992px)"
+                    srcset="./assets/img/features/card-image4-tablet.webp"
+                    type="image/webp"
+                  />
+
+                  <img
+                    src="./assets/img/features/card-image4.png"
+                    alt="Introduction Image"
+                  />
+                </picture>
               </div>
               <div class="feature__card-content feature__card-content--fourth">
                 <div class="feature__card-wrapper">
