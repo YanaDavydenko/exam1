@@ -1,8 +1,8 @@
 
 @mixin button{
-     display: flex;
-     justify-content: center;
-     align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 210px;
     height: 60px;
     border-width: 1px;
@@ -18,34 +18,31 @@
         border-color:  $hover-bg;
     }
 }
-
 @mixin typography($f-size, $l-height, $f-weight, $f-fam,$size-lg: null, $size-md: null, $size-sm: null) {
-  font-size: calc($f-size / 16) * 1rem; 
-  line-height: $l-height;     
-  font-weight: $f-weight;
-  font-family: $f-fam;
+    font-size: calc($f-size / 16) * 1rem; 
+    line-height: $l-height;     
+    font-weight: $f-weight;
+    font-family: $f-fam;
   // Ноутбук ≤1200px
-  @if $size-lg != null {
-    @media screen and (max-width: 1200px) {
-      font-size: calc($size-lg / 16 * 1rem);
-    }
-  }
+    @if $size-lg != null {
+       @media screen and (max-width: 1200px) {
+         font-size: calc($size-lg / 16 * 1rem);
+       }
+     }
 
   // Планшет ≤992px
-  @if $size-md != null {
-    @media screen and (max-width: 992px) {
-      font-size: calc($size-md / 16 * 1rem);
-    }
-  }
+    @if $size-md != null {
+      @media screen and (max-width: 992px) {
+        font-size: calc($size-md / 16 * 1rem);
+     }
+   }
 
   // Большие телефоны ≤768px
-  @if $size-sm != null {
-    @media screen and (max-width: 768px) {
-      font-size: calc($size-sm / 16 * 1rem);
-    }
-  }
-
-
+     @if $size-sm != null {
+      @media screen and (max-width: 768px) {
+        font-size: calc($size-sm / 16 * 1rem);
+     }
+   }
 }
 @mixin card($bg-c, $top, $right, $width, $height, $bg){
     background-color: $bg-c;
@@ -72,13 +69,11 @@
     }
 }
 @mixin respond-to($breakpoint) {
-  @if $breakpoint == laptop {
-    @media screen and (max-width: 1200px) { @content; }
-  } @else if $breakpoint == tablet {
-    @media screen and (max-width: 992px) { @content; }
-  } @else if $breakpoint == mobile {
-    @media screen and (max-width: 768px) { @content; }
-  } @else if $breakpoint == smobile {
-    @media screen and (max-width: 576px) { @content; }
-  }
+    @if $breakpoint == laptop {
+      @media screen and (max-width: 1200px) { @content; }
+    } @else if $breakpoint == tablet {
+      @media screen and (max-width: 992px) { @content; }
+    } @else if $breakpoint == mobile {
+      @media screen and (max-width: 768px) { @content; }
+    } 
 }
