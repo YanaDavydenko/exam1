@@ -19,7 +19,7 @@
     }
 }
 
-@mixin typography($f-size, $l-height, $f-weight, $f-fam,$size-lg: null, $size-md: null, $size-sm: null, $size-xs: null) {
+@mixin typography($f-size, $l-height, $f-weight, $f-fam,$size-lg: null, $size-md: null, $size-sm: null) {
   font-size: calc($f-size / 16) * 1rem; 
   line-height: $l-height;     
   font-weight: $f-weight;
@@ -45,12 +45,7 @@
     }
   }
 
-  // Маленькие телефоны ≤576px
-  @if $size-xs != null {
-    @media screen and (max-width: 576px) {
-      font-size: calc($size-xs / 16 * 1rem);
-    }
-  } 
+
 }
 @mixin card($bg-c, $top, $right, $width, $height, $bg){
     background-color: $bg-c;

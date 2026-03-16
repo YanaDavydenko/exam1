@@ -31,9 +31,6 @@ html, body{
     max-width: 750px;
     
    }
-     @include m.respond-to(mobile){
-        max-width: 550px;
-     }
     
     
     }
@@ -41,7 +38,7 @@ html, body{
 
 .btn{
     @include m.button;
-    @include m.typography(18, 1.6, 500, 'Montserrat', 18, 16, 16);
+    @include m.typography(18, 1.6, 500, 'Montserrat', 18, 16, 16, 14);
     &--primary{
          @extend %btn-primary;
          margin-left: auto;  
@@ -74,14 +71,11 @@ html, body{
        
     }
     @include m.respond-to(tablet){
-       margin-bottom: 0;
+        margin-bottom: 80px;
          &__btn{
      display: none; 
   }
     }
-     @include m.respond-to(mobile){
-        margin-bottom: 0;
-     }
   
 .burger-toggle {
   display: none;
@@ -223,14 +217,7 @@ html, body{
         }
     }
 }
-.main{
-      @include m.respond-to(tablet){
-        margin-top: 80px;
-      }
-       @include m.respond-to(mobile){
-        margin-top: 60px;
-       }
-}
+
 .hero{
     margin-bottom: 100px;
     @include m.respond-to(laptop){
@@ -239,9 +226,6 @@ html, body{
     @include m.respond-to(tablet){
         margin-bottom: 80px;
     }
-     @include m.respond-to(mobile){
-        margin-bottom: 60px;
-     }
     
     &__inner{
     position: relative;
@@ -251,12 +235,6 @@ html, body{
     @include m.respond-to(laptop){
          gap: 20px;   
         }
-         @include m.respond-to(mobile){
-             position: relative; // оставляем позиционирование, чтобы top работал
-    top: 0;             // или нужное значение
-    flex-direction: column;
-    gap: 10px;
-         }
 
     }
     &__content{
@@ -269,12 +247,6 @@ html, body{
         @include m.respond-to(tablet){
             padding-bottom: 5px;
         }
-         @include m.respond-to(mobile){
-            padding-top: 80px;
-            text-align: end;
-            display: flex;
-            flex-direction: column;
-         }
         
     }
     &__heading{
@@ -282,12 +254,11 @@ html, body{
         position: absolute;
         max-width:600px;
         color: v.$heading-color;
-        @include m.typography(80, 1, 700, 'Work Sans', 72, 64, 50);
+        @include m.typography(80, 1, 700, 'Work Sans', 72, 64, 50, 48);
     }
-    
     &__text{
         max-width: 370px;
-        @include m.typography(18, 1.3, 500, 'Montserrat', 18, 15, 14);
+        @include m.typography(18, 1.3, 500, 'Montserrat', 18, 15, 14, 12);
         margin-top: 50px;
         padding-bottom: 50px;
         color: v.$paragraph-color;
@@ -308,13 +279,6 @@ html, body{
   gap:10px;
   color: #212353;
   text-decoration: none;
-  @include m.respond-to(tablet){
-    align-self: flex-end;
-    
-
-
-  }
-   
  
   .link__svg{
         width: 20px;
@@ -322,7 +286,7 @@ html, body{
         color: #8A40EE;
     
   }
-            @include m.typography(16, 1.6, 700, 'Montserrat', 15, 14, 14);
+            @include m.typography(16, 1.6, 700, 'Montserrat', 15, 14, 13, 12);
              &:hover{
                 transform: rotate(5deg) translateY(-3px) scale(1.1);
   transition: transform 0.3s ease;
@@ -339,9 +303,6 @@ html, body{
     @include m.respond-to(tablet){
         padding-bottom: 0;
     }
-     @include m.respond-to(mobile){
-        display: none;
-     }
     
 
         img {
@@ -368,235 +329,97 @@ html, body{
         justify-content: center;
         gap: 30px;
         padding: 75px 70px;
-        @include m.respond-to(mobile){
-            flex-direction: column;
-        }
-        @include m.respond-to(mobile){
-            padding: 55px 50px;
-        }
        
     }
     &__image{
         max-width:400px;
         height: auto;
         width: 100%;
-        @include m.respond-to(mobile){
-            max-width: 200px;
-        }
         img{
             width: 100%;
-        }
-    }
-    &__content{
-        @include m.respond-to(mobile){
-            text-align: center;
         }
     }
 
     &__heading{
         color: v.$heading-color;
         padding-bottom: 40px;
-        @include m.typography (40, 1.3, 700, 'Work Sans', 36, 32, 28);
+        @include m.typography (40, 1.3, 700, 'Work Sans', 36, 32, 28, 24);
     }
     &__text{
         color: v.$paragraph-color;
-        @include m.typography (18, 1.6, 500, 'Montserrat', 16, 15, 14);
+        @include m.typography (18, 1.6, 500, 'Montserrat', 16, 15, 14, 12);
         
     }
 }
-.features{
-    margin-bottom: 120px;
-    @include m.respond-to(laptop){
-        margin-bottom: 100px;  
-    }
-      @include m.respond-to(tablet){
-        margin-bottom: 80px;
-      }
-      @include m.respond-to(mobile){
-        margin-bottom: 60px;
-      }
-    &__heading{
-       
-        color: #212353;
-         @include m.typography (40, 1.3, 700, 'Work Sans', 40, 32, 28);
-
-    }
-    &__title{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 50px;
-        margin-bottom: 80px;
-        @include m.respond-to(mobile){
-            gap: 20px;
-            margin-bottom: 60px;
-        }
-    }
-    &__text{
-        max-width: 638px;
-        color: #4B5D68;
-         @include m.typography (18, 1.6, 400, 'Montserrat', 18, 15, 14);
-    }
-    &__grid-container{
-         display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-        gap:45px 20px;
-         
-        
-    }
+.features {
+  padding: 120px 0;
 }
-.feature{
-    &__card{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        position: relative;
-         @include m.respond-to(laptop){
-           padding-top: 110px;
-         }
-           @include m.respond-to(tablet){
-            position: unset;
-            padding-top: 0;
-            justify-content: space-between;
-           }
-          
-
-       
-   
-        &-wrapper{
-            min-width: 230px;
-            z-index: 2;
-            position: relative;
-             display: flex;
-             flex-direction: column;
-               @include m.respond-to(tablet){
-                position: unset;
-                min-width: 400px;
-                align-items: center;
-                text-align: center;
-               }
-                
-               
-              
-
-        }
-
-         &-image{
-           position: absolute;
-            z-index: 3;
-           
-           left: 0;
-            @include m.respond-to(laptop){
-                top:0;
-            }
-              @include m.respond-to(tablet){
-                position:unset;
-              }
-            @include m.respond-to(mobile){
-                display: none;
-            }
-            
- 
-          
-  
-            }
-            
-         
-          &-image img{
-            width: 100%;
-            height: auto;
-            
-          }
-          
-          &-content{
-            padding: 60px 70px 60px 100px;
-  border-radius: 40px;
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+.feature__card {
   position: relative;
-    @include m.respond-to(tablet){
-        padding: 40px;
-        position: unset;
+}
+.feature__card-image {
+  position: absolute;
+  left: -60px;
+  top: 40px;
+  z-index: 3;
+}
 
-    }
-  @include m.respond-to(mobile){
-                width: 100%;
-               }
-          
-           
-          
-         
-              
-        
-        
-            
-        
-            
-            &--first{
-                @include m.card(#F0FAF9, 15, 60px, 195px, 140px, (url('../assets/img/feature-bg-image1.png')));  
-                  @include m.respond-to(tablet){
-                    &::before{
-                        display: none;
-                    }
-                  }
-            }
-            &--second{
-                @include m.card(#F6F0FD, 230, 20px, 211px, 151px, (url('../assets/img/feature-bg-image2.png')));
-                @include m.respond-to(tablet){
-                    &::before{
-                        display: none;
-                    }
-                  }
-            }
-            &--third{
-                @include m.card(#FEF0F8, 20, 20px, 65px, 51px, (url('../assets/img/feature-bg-image3.png')));
-                @include m.respond-to(tablet){
-                    &::before{
-                        display: none;
-                    }
-                  }
-            }
-            &--fourth{
-                @include m.card(#EAF6FC, 20, 20px, 360px, 360px, (url('../assets/img/feature-bg-image4.png')));
-                @include m.respond-to(tablet){
-                    &::before{
-                        display: none;
-                    }
-                  }
+.feature__card-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.feature__card-content {
+     width: 230px;
+  min-height: 276px;
+  position: relative;
 
-            }
+  margin: 50px 50px 50px 150px;
 
-          }
-          &-heading{
-            padding-bottom: 20px;
-            color: v.$heading-color;
-            @include m.typography(24, 1.3, 400, 'Work Sans', 24, 20, 18);
+  border-radius: 40px;
 
-          }
-          &-text{
-            width: 230px;
-            height: 180px;
-            color: v.$paragraph-color;
-             @include m.typography(16, 1.6, 400, 'Montserrat', 15, 14, 14);
-              @include m.respond-to(mobile){
-                width: 100%;
-                height: 100px;
-               }
-          }
-          &-link{
-            justify-self: flex-end;
-            @extend %link;
-            @include m.typography(16, 1.6, 700, 'Montserrat', 15, 14, 14);
-            
-            
-            &:hover{
-                transform: rotate(5deg) translateY(-3px) scale(1.1);
-  transition: transform 0.3s ease;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+}
+.feature__card-content--first {
+  background-image: url("../assets/img/feature-bg-image1.png");
+  background-color: #eef6f8;
+}
 
-            }
-             
-            
-          }
-        }
+.feature__card-content--second {
+  background-image: url("../assets/img/feature-bg-image2.png");
+  background-color: #f6eef8;
+}
+
+.feature__card-content--third {
+  background-image: url("../assets/img/feature-bg-image3.png");
+  background-color: #f8eef1;
+}
+
+.feature__card-content--fourth {
+  background-image: url("../assets/img/feature-bg-image4.png");
+  background-color: #eef3f8;
+}
+.feature__card-heading {
+  margin-bottom: 16px;
+  font-size: 24px;
+}
+
+.feature__card-text {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.feature__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .testim{
@@ -631,14 +454,11 @@ html, body{
     background: url('../assets/img/testimonials-bg-image.png') no-repeat center / cover;
     
   }
-  @include m.respond-to(mobile){
-                padding: 40px 50px;
-               }
   
         
     }
     &__title{
-        @include m.typography(40, 1.3, 700, 'Work Sans', 40, 32, 28);
+        @include m.typography(40, 1.3, 700, 'Work Sans', 40, 32, 28, 24);
         color: #4B5D68;
         text-align: center;
         
@@ -663,12 +483,6 @@ html, body{
             align-items: center;
             margin-top: 30px;
           }
-          @include m.respond-to(mobile){
-                flex-direction: column;
-               }
-            @include m.respond-to(mobile){
-                padding: 30px;
-               }
         
         &-photo{
             width:90px;
@@ -681,21 +495,14 @@ html, body{
             margin-bottom: 20px;
             text-decoration: none;
             color: #9C69E2;
-            @include m.typography(14, 1.6, 400, 'Montserrat', 14, 12, 12);
+            @include m.typography(14, 1.6, 400, 'Montserrat', 14, 12, 12, 12);
         }
         &-heading{
-           
-             @include m.typography(16, 1.6, 500, 'Montserrat', 16, 14, 14);
-             color: v.$heading-color;
-             
+             @include m.typography(16, 1.6, 500, 'Montserrat', 16, 14, 13, 12);
         }
         &-text{
-            @include m.typography(16, 1.6, 400, 'Montserrat', 15, 14, 14);
+            @include m.typography(16, 1.6, 400, 'Montserrat', 15, 14, 13, 12);
             color: v.$paragraph-color;
-           
-        }
-        &-content{
-            text-align: center;
         }
         
 
@@ -723,7 +530,7 @@ html, body{
 
     }
     &__title{
-         @include m.typography(40, 1.3, 700, 'Work Sans', 36, 32, 28);
+         @include m.typography(40, 1.3, 700, 'Work Sans', 36, 32, 28, 24);
          color: v.$heading-color;   
          padding-bottom: 20px;
          @include m.respond-to(tablet){
@@ -734,7 +541,7 @@ html, body{
            
     }
     &__text{
-         @include m.typography(18, 1.6, 500, 'Montserrat', 16, 15, 14);
+         @include m.typography(18, 1.6, 500, 'Montserrat', 16, 15, 14, 12);
          color: v.$paragraph-color;
          @include m.respond-to(tablet){
             text-align: center;
@@ -755,7 +562,7 @@ html, body{
           }
       
         &-title{
-             @include m.typography(16, 1.6, 600, 'Montserrat', 15, 14, 14);
+             @include m.typography(16, 1.6, 600, 'Montserrat', 15, 14, 13, 12);
              color: v.$heading-color; 
              margin-bottom: 30px;
 
@@ -770,7 +577,7 @@ html, body{
             margin-bottom: 40px;
         }
         &-title{
-            @include m.typography(20, 1.6, 600, 'Montserrat', 18, 16, 16);
+            @include m.typography(20, 1.6, 600, 'Montserrat', 18, 16, 16, 14);
             color: v.$heading-color;
         }
         &-contacts{
@@ -780,7 +587,7 @@ html, body{
         }
         &-address{
             font-style: normal;
-            @include m.typography(16, 1.8, 500, 'Montserrat', 15, 14, 14);
+            @include m.typography(16, 1.8, 500, 'Montserrat', 15, 14, 13, 12);
         }
         &-email, &-phone{
             text-decoration: none;
@@ -847,11 +654,17 @@ html, body{
         }
     }
     &__bottom{
-         @include m.typography(12, 1.8, 300, 'Montserrat', 12, 12, 12);
+         @include m.typography(12, 1.8, 300, 'Montserrat', 12, 12, 12, 12);
          color: v.$paragraph-color; 
            @include m.respond-to(tablet){
             text-align: center;
            }
     }
  }
- 
+ @media (max-width: 992px) {
+
+  .features__grid {
+    grid-template-columns: 1fr;
+  }
+
+}
