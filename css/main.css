@@ -134,6 +134,11 @@ html, body {
     max-width: 550px;
   }
 }
+@media screen and (max-width: 640px) {
+  .container {
+    max-width: 300px;
+  }
+}
 
 /* ===== buttons ===== */
 .btn {
@@ -370,6 +375,11 @@ html, body {
     margin-top: 60px;
   }
 }
+@media screen and (max-width: 640px) {
+  .main {
+    margin-top: 40px;
+  }
+}
 
 /* ===== hero section ===== */
 .hero {
@@ -388,6 +398,11 @@ html, body {
 @media screen and (max-width: 768px) {
   .hero {
     margin-bottom: 60px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .hero {
+    margin-bottom: 40px;
   }
 }
 .hero__inner {
@@ -431,6 +446,11 @@ html, body {
     flex-direction: column;
   }
 }
+@media screen and (max-width: 640px) {
+  .hero__content {
+    align-items: center;
+  }
+}
 .hero__heading {
   top: 0;
   position: absolute;
@@ -453,7 +473,7 @@ html, body {
 }
 @media screen and (max-width: 768px) {
   .hero__heading {
-    font-size: 3.125rem;
+    font-size: 2.5rem;
   }
 }
 .hero__text {
@@ -492,6 +512,13 @@ html, body {
 @media screen and (max-width: 992px) {
   .hero__text {
     padding-bottom: 10px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .hero__text {
+    max-width: 300px;
+    margin-top: 20px;
+    text-align: start;
   }
 }
 .hero__link {
@@ -572,6 +599,11 @@ html, body {
     margin-bottom: 60px;
   }
 }
+@media screen and (max-width: 640px) {
+  .intro {
+    margin-bottom: 40px;
+  }
+}
 .intro__inner {
   background-color: #FDE8F5;
   border-radius: 50px;
@@ -589,6 +621,11 @@ html, body {
 @media screen and (max-width: 768px) {
   .intro__inner {
     padding: 55px 50px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .intro__inner {
+    border-radius: 80%;
   }
 }
 .intro__image {
@@ -674,6 +711,11 @@ html, body {
     margin-bottom: 60px;
   }
 }
+@media screen and (max-width: 640px) {
+  .features {
+    margin-bottom: 40px;
+  }
+}
 .features__heading {
   color: #212353;
   font-size: 2.5rem;
@@ -710,6 +752,11 @@ html, body {
     margin-bottom: 60px;
   }
 }
+@media screen and (max-width: 640px) {
+  .features__title {
+    margin-bottom: 20px;
+  }
+}
 .features__text {
   max-width: 638px;
   color: #4B5D68;
@@ -737,6 +784,13 @@ html, body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   gap: 45px 20px;
+}
+@media screen and (max-width: 640px) {
+  .features__grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 /* ===== feature card ===== */
@@ -768,9 +822,16 @@ html, body {
 @media screen and (max-width: 992px) {
   .feature__card-wrapper {
     position: unset;
-    min-width: 400px;
+    min-width: 300px;
     align-items: center;
     text-align: center;
+  }
+}
+@media screen and (max-width: 640px) {
+  .feature__card-wrapper {
+    min-width: 200px;
+    padding: 20px 0;
+    position: unset;
   }
 }
 .feature__card-image {
@@ -811,6 +872,11 @@ html, body {
 @media screen and (max-width: 768px) {
   .feature__card-content {
     width: 100%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .feature__card-content {
+    padding: 20px 40px;
   }
 }
 .feature__card-content--first {
@@ -954,6 +1020,12 @@ html, body {
     height: 100px;
   }
 }
+@media screen and (max-width: 640px) {
+  .feature__card-text {
+    width: 220px;
+    height: 180px;
+  }
+}
 .feature__card-link {
   justify-self: flex-end;
   font-size: 1rem;
@@ -1029,6 +1101,11 @@ html, body {
     display: none;
   }
 }
+@media screen and (max-width: 640px) {
+  .testim__inner {
+    padding: 20px;
+  }
+}
 .testim__title {
   font-size: 2.5rem;
   line-height: 1.3;
@@ -1087,6 +1164,11 @@ html, body {
 @media screen and (max-width: 768px) {
   .testim__profile {
     padding: 30px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .testim__profile {
+    padding: 20px;
   }
 }
 .testim__profile-photo {
@@ -1217,6 +1299,16 @@ html, body {
     margin-bottom: 80px;
   }
 }
+.footer__cta-buttons {
+  display: flex;
+  gap: 30px;
+}
+@media screen and (max-width: 640px) {
+  .footer__cta-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 .footer__title {
   font-size: 2.5rem;
   line-height: 1.3;
@@ -1277,10 +1369,6 @@ html, body {
     text-align: center;
     padding-bottom: 20px;
   }
-}
-.footer__cta-buttons {
-  display: flex;
-  gap: 30px;
 }
 .footer__main {
   display: grid;

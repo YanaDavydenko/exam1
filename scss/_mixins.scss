@@ -75,5 +75,7 @@
       @media screen and (max-width: 992px) { @content; }
     } @else if $breakpoint == mobile {
       @media screen and (max-width: 768px) { @content; }
-    } 
+    } @else if $breakpoint == smobile {
+      @media screen and (max-width: 640px) { @content; }
+    }
 }
