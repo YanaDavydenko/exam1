@@ -409,7 +409,7 @@ html, body{
     &__text{
         max-width: 638px;
         color: #4B5D68;
-        @include m.typography (18, 1.6, 400, 'Montserrat', 18, 15, 14);
+        @include m.typography (18, 1.6, 500, 'Montserrat', 18, 15, 14);
     }
     &__grid-container{
         display: grid;
